@@ -37,13 +37,13 @@ public class SeleniumTest {
     }
 
     @Test
-    void test(){
+    public void test() {
         driver.get("http://localhost:9999");
-        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Мамин-Сибиряк Дмитрий");
-        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79649971830");
-        driver.findElement(By.className("[data-test-id=agreement] .checkbox__box")).click();
-        driver.findElement(By.className("button_view_extra")).click();
-        String text = driver.findElement(By.className("[data-test-id=order-success]")).getText();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Мамин-Сибиряк Дмитрий");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79649971830");
+        driver.findElement(By.cssSelector("[data-test-id=agreement] .checkbox__box")).click();
+        driver.findElement(By.cssSelector(".form-field .button__content")).click();
+        String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text);
     }
 }
